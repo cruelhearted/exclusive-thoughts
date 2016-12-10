@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	ul,li,span{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+
+	}
+		#big-box{
+			width: 300px;
+			height: 500px;
+			border: 1px solid #000;
+			margin: 100px auto;
+		}
+		#big-box span{
+			display: inline-block;
+			width: 65px;
+			height: 150px;
+			border: 1px solid #000;	
+			border-top: none;
+			border-bottom: none;
+			border-right: none;
+		}
+		 span:nth-child(1){
+			border-left:0px;
+			padding-left: 8px;
+		}
+		#content{
+			height: 350px;
+			border-top: 1px solid #cccccc;
+		}
+		 li{
+			height: 350px;
+			display: none;
+			
+		}
+		.current{
+			display: block;
+		}
+		.color{
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="" id="big-box">
+		<span>1</span>
+		<span>1</span>
+		<span>1</span>
+		<span>1</span>
+		<ul id="content">
+		<li class="current">1</li>
+			<li>5</li>
+			<li>2</li>
+			<li>6</li>
+		</ul>
+	</div>	
+	<script>
+	function getid(id){
+		return document.getElementById(id);
+	}
+	function gettag(tag){
+		return document.getElementsByTagName(tag);
+	}
+	var spans=gettag("span");
+	var lis=gettag("li");
+	console.log(spans);
+	console.log(lis);
+	for(var i=0,l=spans.length;i<l;i++){
+		spans[i].suoyin=i;
+		spans[i].onclick=function(){
+			for(var j=0,l=spans.length;j<l;j++){
+				spans[j].className="";
+				lis[j].className="";
+			}
+			this.className="color";
+			lis[this.suoyin].className="current";
+		}
+	}
+	// var spans=gettag("span");
+	// var lis=gettag("li");
+	// console.log(spans);
+	// for(var i=0,l=spans.length;i<l;i++){
+	// 	spans[i].suoyin=i;
+	// 	spans[i].onclick=function(){
+	// 		for(var j=0,l=spans.length;j<l;j++){
+	// 			spans[j].className="";
+	// 			lis[j].className="";
+	// 		}
+	// 		this.className="color";
+	// 		lis[this.suoyin].className="current";
+	// 	}
+	// }
+
+	</script>
+</body>
+</html>
